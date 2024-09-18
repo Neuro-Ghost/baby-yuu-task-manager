@@ -5,19 +5,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const clearAllBtn = document.getElementById("clear-all-btn");
 
     // Array of playful messages
-    const messages = [
-        "Hehe, it's so funny to see you try!",
-        "Good luck!",
-        "Why even try, smh.",
-        "NERDDDD",
-        "Keep going, you're almost there!",
-        "Seriously?",
-        "Just give up already!",
-        "Wow, you're still here?",
-        "You're doing great... maybe.",
-        "Nice try!",
-        "Not bad, for a nerd!"
-    ];
+const messages = [
+    "Oh, you're really trying, huh? Cute!",
+    "Almost there... or are you?",
+    "Look at you, thinking you’re so smart!",
+    "Still here? You must *really* want it!",
+    "Wow, you're like... kinda impressive, maybe.",
+    "Haha, keep it up! Don’t let the struggle win!",
+    "Oh come on, even a nerd can do this!",
+    "Pssst... you might actually be good at this!",
+    "You're doing it! I’m shocked!",
+    "Keep going! I can *almost* take you seriously now.",
+    "Oof, that was close! You’ve got this... right?"
+];
+
 
     // Array of initial cat image URLs
     const initialCatImages  = [
@@ -25,13 +26,15 @@ document.addEventListener("DOMContentLoaded", function () {
         "https://www.cutecatgifs.com/wp-content/uploads/2014/07/cute-aww.gif",
         "https://25.media.tumblr.com/c6cfe4e9c0818f665c7a22d10c9afcba/tumblr_mkzo8lp1hK1snc4fmo1_500.gif",
         "https://media.tenor.com/QcCLjiic51kAAAAM/diva-happy.gif",
-        "https://media.tenor.com/ljz6HI7ZlokAAAAM/cat-cats.gif"
+        "https://media.tenor.com/ljz6HI7ZlokAAAAM/cat-cats.gif",
+        "https://media.tenor.com/igcX5hdPWD4AAAAM/eating-cats.gif",
+        "https://i.pinimg.com/originals/b2/03/42/b203427f5041a1dbc1a61bdeed3ca909.gif",
+        "https://media.tenor.com/z-N6G4F6nb8AAAAM/cat-cute.gif"
     ];
 
     // Array of cat image URLs for completed tasks
     const completedCatImages = [
         "https://i.makeagif.com/media/7-28-2016/LHHsiF.gif",
-
     ];
 
     // Function to create a random text box
@@ -141,7 +144,89 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 5000);
     }
 
-    // Your existing task management code...
+    // Function to save tasks to localStorage
+    function saveTasks() {
+        const tasks = [];
+        taskList.querySelectorAll('li').forEach(li => {
+            const taskText = li.querySelector('span').textContent;
+            const isCompleted = li.classList.contains('completed');
+            const completionTime = li.querySelector('.expected-completion').value;
+            tasks.push({ taskText, isCompleted, completionTime });
+        });
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    // Function to load tasks from localStorage
+    function loadTasks() {
+        const savedTasks = JSON.parse(localStorage.getItem('tasks'));
+        if (savedTasks) {
+            savedTasks.forEach(task => {
+                addTask(task.taskText, task.isCompleted, task.completionTime);
+            });
+        }
+    }
+
+    // Load tasks when page loads
+    loadTasks();
+
+    // Modify the addTask function to include localStorage
+// Function to add task with animation
+function addTask(taskText, isCompleted = false, completionTime = '') {
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+        <div class="flex justify-between items-center">
+            <span>${taskText}</span>
+            <input type="datetime-local" class="expected-completion" value="${completionTime}">
+            <button class="complete-btn">Completed</button>
+            <button class="delete-btn">Delete</button>
+        </div>
+    `;
+
+    // Add to task list and trigger animation
+    taskList.appendChild(li);
+    setTimeout(() => {
+        li.classList.add("show");
+    }, 10);
+
+    if (isCompleted) {
+        li.classList.add("completed");
+        li.classList.add("show"); // Show completed animation
+    }
+
+    const completeBtn = li.querySelector(".complete-btn");
+    completeBtn.addEventListener("click", function () {
+        li.classList.toggle("completed");
+        li.classList.add("show"); // Ensure the completed animation is shown
+        showCompletionCat(); // Show completion cat
+        saveTasks(); // Save the updated tasks
+    });
+
+    const deleteBtn = li.querySelector(".delete-btn");
+    deleteBtn.addEventListener("click", function () {
+        li.classList.remove("show"); // Trigger hide animation
+        setTimeout(() => {
+            li.remove();
+            saveTasks(); // Save the updated tasks
+            if (taskList.children.length === 0) {
+                clearAllBtn.style.display = "none"; // Hide the button if no tasks
+            }
+        }, 500); // Match the animation duration
+    });
+
+    saveTasks(); // Save tasks when a new one is added
+    showCuteCat();
+}
+
+
+    // Clear all tasks button - include localStorage clearing
+    clearAllBtn.addEventListener("click", function () {
+        taskList.innerHTML = ""; // Clear all tasks
+        localStorage.removeItem('tasks'); // Clear localStorage
+        clearAllBtn.style.display = "none"; // Hide the button
+    });
+
+    // Event listener for adding tasks
     addTaskBtn.addEventListener("click", function () {
         const taskText = taskInput.value.trim();
         if (taskText !== "") {
@@ -151,53 +236,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    function addTask(taskText) {
-        const li = document.createElement("li");
-
-        li.innerHTML = `
-            <div class="flex justify-between items-center">
-                <span>${taskText}</span>
-                <input type="datetime-local" class="expected-completion">
-                <button class="complete-btn bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded">Completed</button>
-                <button class="delete-btn bg-red-500 hover:bg-red-600 text-white py-1 px-2 rounded">Delete</button>
-            </div>
-        `;
-
-        const completeBtn = li.querySelector(".complete-btn");
-        completeBtn.addEventListener("click", function () {
-            li.classList.toggle("completed");
-            // Show a different cat image when the task is completed
-            showCompletionCat();
-        });
-
-        const deleteBtn = li.querySelector(".delete-btn");
-        deleteBtn.addEventListener("click", function () {
-            li.remove();
-            // Check the number of tasks to show/hide the "Clear All" button
-            if (taskList.children.length === 0) {
-                clearAllBtn.style.display = "none"; // Hide the button
-            }
-        });
-
-        // Use setTimeout to add the animation class after a slight delay
-        setTimeout(function () {
-            li.classList.add("task-entry");
-        }, 10);
-
-        taskList.appendChild(li);
-
-        // Show a cute cat each time a new task is added
-        showCuteCat();
-    }
-
     taskInput.addEventListener("keyup", function (event) {
         if (event.key === "Enter") {
             addTaskBtn.click();
         }
     });
+ 
+  
 
-    clearAllBtn.addEventListener("click", function () {
-        taskList.innerHTML = ""; // Clear all tasks
-        clearAllBtn.style.display = "none"; // Hide the button
-    });
+ 
 });
