@@ -200,7 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (taskText !== "") {
             addTask(taskText);
             taskInput.value = "";
-            showCuteCat();
         }
     });
 
