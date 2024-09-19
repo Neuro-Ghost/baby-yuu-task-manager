@@ -199,7 +199,6 @@ p {
 }
 
 .completed::before {
-    content: "✔";
     position: absolute;
     left: -30px;
     color: #4CAF50; /* Green checkmark */
@@ -222,6 +221,50 @@ p {
         transform: scale(1);
     }
 }
+/* Add this CSS to your stylesheet or within a <style> tag */
+
+/* Container for better positioning */
+.task-container {
+  position: relative; /* Ensure the custom arrow is properly positioned */
+}
+
+/* Style the select element */
+.day-selection {
+  appearance: none; /* Remove default arrow */
+  padding: 8px 12px; /* Smaller padding for a cuter look */
+  font-size: 14px; /* Slightly smaller font size */
+  border: 1px solid #ddd; /* Light border for a soft appearance */
+  border-radius: 8px; /* Rounded corners for a cute effect */
+  background-color: #fff; /* Clean white background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  cursor: pointer; /* Pointer cursor */
+  width: 100%; /* Full width to match other elements */
+  transition: border-color 0.2s ease; /* Smooth transition */
+}
+
+/* Custom arrow */
+.day-selection::after {
+  content: "▼"; /* Downward arrow */
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  right: 10px; /* Align right */
+  transform: translateY(-50%); /* Center adjustment */
+  color: #007bff; /* Arrow color */
+  font-size: 12px; /* Smaller arrow size */
+  pointer-events: none; /* Prevent interaction with arrow */
+}
+
+/* Focus styling */
+.day-selection:focus {
+  border-color: #007bff; /* Blue border on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Dropdown options (for styling purposes) */
+.day-selection option {
+  padding: 8px; /* Padding inside options */
+}
+
 
 /* Task completion animation */
 .completed {
@@ -453,7 +496,6 @@ body {
     100% { transform: rotateZ(-16deg); }
   }
   body {
-    background-color: #abe7db; /* teal */
     display: flex;
     justify-content: center;
     align-items: center;
