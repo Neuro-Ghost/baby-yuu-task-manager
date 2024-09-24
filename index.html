@@ -23,6 +23,23 @@
 
         // Change title every second (1000 ms)
         setInterval(changeTitle, 1000);
+          function launchConfetti() {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  }
+
+  function completeTask(taskId) {
+    const task = document.getElementById(taskId);
+    task.classList.add('completed-task');
+    
+    setTimeout(() => {
+      task.remove();
+      launchConfetti();  // Launch confetti after task completes
+    }, 800);
+  }
     </script>
 </head>
 <body>
