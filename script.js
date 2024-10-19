@@ -10,14 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     const initialCatImages = [
-        "https://media.tenor.com/VdIKn05yIh8AAAAM/cat-sleep.gif",
-        "https://www.cutecatgifs.com/wp-content/uploads/2014/07/cute-aww.gif",
-        "https://25.media.tumblr.com/c6cfe4e9c0818f665c7a22d10c9afcba/tumblr_mkzo8lp1hK1snc4fmo1_500.gif",
-        "https://media.tenor.com/QcCLjiic51kAAAAM/diva-happy.gif",
-        "https://media.tenor.com/ljz6HI7ZlokAAAAM/cat-cats.gif",
-        "https://media.tenor.com/igcX5hdPWD4AAAAM/eating-cats.gif",
-        "https://i.pinimg.com/originals/b2/03/42/b203427f5041a1dbc1a61bdeed3ca909.gif",
-        "https://media.tenor.com/z-N6G4F6nb8AAAAM/cat-cute.gif"
+        "https://38.media.tumblr.com/457b296c98ddd69f5327b8b5881e4ffe/tumblr_nedxajZ0hW1tw5bhko1_400.gif",
+        "https://64.media.tumblr.com/bf764f6e75024cd690b1c11e1b0eed15/18a26cfa8ad7e0da-14/s250x400/fab9def043d1a713e9cae44e8fe42971afa135bc.gif"
+      
     ];
 
     const completedCatImages = [
