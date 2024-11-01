@@ -517,4 +517,31 @@ body {
   .footer p {
     margin: 0;
   }
-  
+  .music-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.music-btn {
+    background-color: #ffb6c1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.6);
+}
+
+.music-btn:hover {
+    background-color: #ff88a5;
+}
+
+.music-btn:active {
+    transform: scale(0.95);
+}
+
