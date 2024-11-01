@@ -54,6 +54,7 @@ font-family: 'Dancing Script', cursive;    color: #333;
     border-radius: 5px;
     margin-bottom: 10px;
     font-size: 16px;
+        font-family: 'Quicksand', sans-serif; /* Use Quicksand for body text */
 }
 
 .add-task-btn {
@@ -64,6 +65,7 @@ font-family: 'Dancing Script', cursive;    color: #333;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
+        font-family: 'Quicksand', sans-serif; /* Use Quicksand for body text */
 }
 
 .add-task-btn:hover {
