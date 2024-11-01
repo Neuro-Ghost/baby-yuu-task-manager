@@ -73,6 +73,8 @@ font-family: 'Dancing Script', cursive;    color: #333;
 
 .add-task-btn:hover {
     animation: pulse 1.5s infinite; /* Trigger pulse on hover */
+    background-color: #ff88a5;
+
 }
 
 @keyframes pulse {
