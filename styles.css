@@ -60,20 +60,32 @@ font-family: 'Dancing Script', cursive;    color: #333;
 
 .add-task-btn {
     background-color: #ffb6c1; /* Bright pink button */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-        box-shadow: 0 4px 10px rgba(255, 182, 193, 0.6);
-        font-family: 'Quicksand', sans-serif; /* Use Quicksand for body text */
+    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.6);
+    font-family: 'Quicksand', sans-serif; /* Use Quicksand for body text */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: transform 0.3s; /* Smooth transform transition */
 }
 
 .add-task-btn:hover {
-    background-color: #e75480; /* Darker pink on hover */
+    animation: pulse 0.6s infinite; /* Trigger pulse on hover */
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Original size */
+    }
+    50% {
+        transform: scale(1.1); /* Slightly larger */
+    }
+    100% {
+        transform: scale(1); /* Back to original size */
+    }
+}
 /* Task List Styles */
 .task-list {
     list-style: none;
