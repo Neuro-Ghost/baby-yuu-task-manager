@@ -72,7 +72,7 @@ font-family: 'Dancing Script', cursive;    color: #333;
 }
 
 .add-task-btn:hover {
-    animation: pulse 0.9s infinite; /* Trigger pulse on hover */
+    animation: pulse 1.5s infinite; /* Trigger pulse on hover */
 }
 
 @keyframes pulse {
