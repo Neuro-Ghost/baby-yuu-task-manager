@@ -37,7 +37,6 @@ font-family: 'Dancing Script', cursive;    color: #333;
     transition: color 0.3s, transform 0.4s;
 }
 .title:hover {
-    color: #ff69b4; /* Bright pink on hover */
     transform: scale(1.50);
 }
 
