@@ -15,7 +15,7 @@ font-family: 'Dancing Script', cursive;    color: #333;
     width: 100%;
     max-width: 700px;
     padding: 20px;
-    background-color: #fdf9de;
+    background-color: rgba(253, 249, 222, 0.8); /* Semi-transparent for a softer look */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 182, 193, 0.4);
     overflow-x: hidden;  
