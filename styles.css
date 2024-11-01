@@ -370,7 +370,6 @@ body {
     border-bottom-right-radius: 5px;
     background: #745260; /* purple */
     z-index: 0;
-    animation: wagTail 1s infinite alternate; /* Wagging effect */
   }
   
   .tail > .tail {
@@ -498,14 +497,7 @@ body {
     80% { transform: rotateZ(-30deg); }
     100% { transform: rotateZ(-16deg); }
   }
-@keyframes wagTail {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(10deg);
-    }
-}
+
   body {
     display: flex;
     justify-content: center;
