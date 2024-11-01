@@ -66,6 +66,7 @@ font-family: 'Dancing Script', cursive;    color: #333;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
+        box-shadow: 0 4px 10px rgba(255, 182, 193, 0.6);
         font-family: 'Quicksand', sans-serif; /* Use Quicksand for body text */
 }
 
