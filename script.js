@@ -3,6 +3,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const addTaskBtn = document.getElementById("add-task-btn");
     const taskList = document.getElementById("task-list");
     const clearAllBtn = document.getElementById("clear-all-btn");
+const audio = document.getElementById('background-music');
+const playBtn = document.getElementById('play-btn');
+const loopBtn = document.getElementById('loop-btn');
+
+let isPlaying = false;
+let isLooping = false;
+
+playBtn.addEventListener('click', () => {
+    if (isPlaying) {
+        audio.pause();
+        playBtn.textContent = 'Play';
+    } else {
+        audio.play();
+        playBtn.textContent = 'Pause';
+    }
+    isPlaying = !isPlaying;
+});
+
+loopBtn.addEventListener('click', () => {
+    isLooping = !isLooping;
+    audio.loop = isLooping;
+    loopBtn.textContent = isLooping ? 'Loop On' : 'Loop Off';
+});
 
     const messages = [
         "G fucking G's",
