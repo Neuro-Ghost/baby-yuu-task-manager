@@ -507,8 +507,7 @@ body {
   .footer {
     position: absolute;
     bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-    color: #745260; /* matching the purple cat color */
+    font-family: 'Quicksand', sans-serif; /* Use Quicksand for body text */    color: #745260; /* matching the purple cat color */
     font-size: 14px;
     z-index: 3;
   }
@@ -530,8 +529,7 @@ body {
     border: none;
     padding: 10px 20px;
     border-radius: 25px;
-    font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
+    font-family: 'Quicksand', sans-serif; /* Use Quicksand for body text */    cursor: pointer;
     transition: all 0.3s;
     box-shadow: 0 4px 10px rgba(255, 182, 193, 0.6);
 }
