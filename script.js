@@ -3,28 +3,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const addTaskBtn = document.getElementById("add-task-btn");
     const taskList = document.getElementById("task-list");
     const clearAllBtn = document.getElementById("clear-all-btn");
-const audio = document.getElementById('background-music');
-const playBtn = document.getElementById('play-btn');
+const audio = document.getElementById('your-audio-element'); // Replace with your audio element
+const playPauseBtn = document.getElementById('play-pause-btn');
+const playIcon = document.getElementById('play-icon');
+const pauseIcon = document.getElementById('pause-icon');
 const loopBtn = document.getElementById('loop-btn');
+const loopIcon = document.getElementById('loop-icon');
 
-let isPlaying = false;
 let isLooping = false;
 
-playBtn.addEventListener('click', () => {
-    if (isPlaying) {
-        audio.pause();
-        playBtn.textContent = 'Play';
-    } else {
+playPauseBtn.addEventListener('click', () => {
+    if (audio.paused) {
         audio.play();
-        playBtn.textContent = 'Pause';
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+    } else {
+        audio.pause();
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
     }
-    isPlaying = !isPlaying;
 });
 
 loopBtn.addEventListener('click', () => {
-    isLooping = !isLooping;
-    audio.loop = isLooping;
-    loopBtn.textContent = isLooping ? 'Loop On' : 'Loop Off';
+    isLooping = !isLooping; // Toggle loop state
+    audio.loop = isLooping; // Enable or disable loop
+
+    if (isLooping) {
+        loopIcon.classList.add('active'); // Add a class for active state if needed
+    } else {
+        loopIcon.classList.remove('active'); // Remove class for inactive state if needed
+    }
 });
 
     const messages = [
