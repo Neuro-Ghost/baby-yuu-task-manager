@@ -9,41 +9,6 @@ const loopBtn = document.getElementById('loop-btn');
 
 let isPlaying = false;
 let isLooping = false;
-// Define your playlist
-const playlist = [
-  { title: "dream", file: "dream.mp3" },
-  { title: "Enta Zaalen Menni", file: "enta zaalan menni.mp3" },
-];
-
-// Variables for playlist control
-let currentSongIndex = 0;
-const audioPlayer = document.getElementById("audio-player");
-const songInfo = document.getElementById("song-info");
-
-// Load the first song
-loadSong(currentSongIndex);
-
-function loadSong(index) {
-  const song = playlist[index];
-  audioPlayer.src = song.file;
-  songInfo.textContent = song.title;
-  audioPlayer.play();
-}
-
-// Play the next song
-function nextSong() {
-  currentSongIndex = (currentSongIndex + 1) % playlist.length;
-  loadSong(currentSongIndex);
-}
-
-// Play the previous song
-function previousSong() {
-  currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
-  loadSong(currentSongIndex);
-}
-
-// When a song ends, play the next one
-audioPlayer.addEventListener("ended", nextSong);
 
 playBtn.addEventListener('click', () => {
     if (isPlaying) {
