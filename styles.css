@@ -561,4 +561,27 @@ body {
 .music-btn:active {
     transform: scale(0.95);
 }
+.music-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+}
+
+.icon-button {
+    background: none; /* No background */
+    border: none; /* No border */
+    cursor: pointer;
+    outline: none; /* No outline */
+    transition: transform 0.2s; /* Animation on hover */
+}
+
+.icon-button:hover {
+    transform: scale(1.1); /* Grow effect on hover */
+}
+
+.icon-button i {
+    font-size: 24px; /* Icon size */
+    color: #ff69b4; /* Icon color */
+}
 
