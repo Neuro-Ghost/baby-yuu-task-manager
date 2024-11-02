@@ -188,60 +188,66 @@ loopBtn.addEventListener('click', () => {
         }
     }
 
-    function addTask(taskText, isCompleted = false, selectedDay = '') {
-        const li = document.createElement("li");
+   function addTask(taskText, isCompleted = false, selectedDay = '') {
+    const li = document.createElement("li");
 
-        let dayOptions = daysOfWeek.map(day => {
-            return `<option value="${day}" ${day === selectedDay ? 'selected' : ''}>${day}</option>`;
-        }).join('');
+    let dayOptions = daysOfWeek.map(day => {
+        return `<option value="${day}" ${day === selectedDay ? 'selected' : ''}>${day}</option>`;
+    }).join('');
 
-        li.innerHTML = `
-            <div class="flex justify-between items-center">
+    li.innerHTML = `
+        <div class="flex justify-between items-center">
             <select class="day-selection">
-                    ${dayOptions}
-                </select>
-                <span>${taskText}</span>
-                <br>
-                <button class="complete-btn">Completed</button>
-                <button class="delete-btn">Delete</button>
-            </div>
-        `;
+                ${dayOptions}
+            </select>
+            <span>${taskText}</span>
+            <br>
+            <button class="complete-btn">Completed</button>
+            <button class="delete-btn">Delete</button>
+        </div>
+    `;
 
-        taskList.appendChild(li);
-        setTimeout(() => {
-            li.classList.add("show");
-        }, 10);
+    taskList.appendChild(li);
+    setTimeout(() => {
+        li.classList.add("show");
+    }, 10);
 
-        if (isCompleted) {
-            li.classList.add("completed");
-        }
-
-        const daySelection = li.querySelector(".day-selection");
-        daySelection.addEventListener("change", function () {
-            saveTasks();
-            sortTasks();  // Sort tasks when day is changed
-        });
-
-        const completeBtn = li.querySelector(".complete-btn");
-        completeBtn.addEventListener("click", function () {
-            li.classList.toggle("completed");
-            showCompletionCat();
-            saveTasks();
-        });
-
-        const deleteBtn = li.querySelector(".delete-btn");
-        deleteBtn.addEventListener("click", function () {
-            li.classList.remove("show");
-            setTimeout(() => {
-                li.remove();
-                saveTasks();
-            }, 500);
-        });
-
-        saveTasks();
-        showCuteCat();
-        sortTasks();  // Sort tasks when a new task is added
+    if (isCompleted) {
+        li.classList.add("completed");
     }
+
+    // Play sound effect for added task
+    const taskAddedSound = document.getElementById('taskAddedSound');
+    taskAddedSound.currentTime = 0; // Reset to the beginning
+    taskAddedSound.play(); // Play the sound
+
+    const daySelection = li.querySelector(".day-selection");
+    daySelection.addEventListener("change", function () {
+        saveTasks();
+        sortTasks();  // Sort tasks when day is changed
+    });
+
+    const completeBtn = li.querySelector(".complete-btn");
+    completeBtn.addEventListener("click", function () {
+        li.classList.toggle("completed");
+        showCompletionCat();
+        saveTasks();
+    });
+
+    const deleteBtn = li.querySelector(".delete-btn");
+    deleteBtn.addEventListener("click", function () {
+        li.classList.remove("show");
+        setTimeout(() => {
+            li.remove();
+            saveTasks();
+        }, 500);
+    });
+
+    saveTasks();
+    showCuteCat();
+    sortTasks();  // Sort tasks when a new task is added
+}
+
 
     addTaskBtn.addEventListener("click", function () {
         const taskText = taskInput.value.trim();
