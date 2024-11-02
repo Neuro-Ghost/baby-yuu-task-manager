@@ -3,7 +3,8 @@ body {
     background-repeat: no-repeat; 
     background-attachment: fixed; 
     background-size: cover; 
-font-family: 'Dancing Script', cursive;    color: #333;
+    font-family: 'Quicksand', sans-serif; /* Use Quicksand for body text */
+    color: #333;
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -30,6 +31,7 @@ font-family: 'Dancing Script', cursive;    color: #333;
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
+    font-family: 'Dancing Script', cursive;
     font-weight: bold;
     color: #fd6e72; /* Pinkish color */
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6); /* Soft shadow for depth */
