@@ -27,18 +27,6 @@ loopBtn.addEventListener('click', () => {
     loopBtn.textContent = isLooping ? 'Loop On' : 'Loop Off';
 });
 
-
-loopBtn.addEventListener('click', () => {
-    isLooping = !isLooping; // Toggle loop state
-    audio.loop = isLooping; // Enable or disable loop
-
-    if (isLooping) {
-        loopIcon.classList.add('active'); // Add a class for active state if needed
-    } else {
-        loopIcon.classList.remove('active'); // Remove class for inactive state if needed
-    }
-});
-
     const messages = [
         "G fucking G's",
         "Everyone's good at something..."
