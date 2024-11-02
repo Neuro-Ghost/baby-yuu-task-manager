@@ -13,10 +13,10 @@ let isLooping = false;
 playBtn.addEventListener('click', () => {
     if (isPlaying) {
         audio.pause();
-        playBtn.textContent = 'Play';
+        playBtn.textContent = '▶';
     } else {
         audio.play();
-        playBtn.textContent = 'Pause';
+        playBtn.textContent = '▐▐';
     }
     isPlaying = !isPlaying;
 });
