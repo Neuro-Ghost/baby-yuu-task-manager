@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const addTaskBtn = document.getElementById("add-task-btn");
     const taskList = document.getElementById("task-list");
     const clearAllBtn = document.getElementById("clear-all-btn");
-const audio = document.getElementById('your-audio-element'); // Replace with your audio element
+const audio = document.getElementById('background-music'); 
 const playPauseBtn = document.getElementById('play-pause-btn');
 const playIcon = document.getElementById('play-icon');
 const pauseIcon = document.getElementById('pause-icon');
