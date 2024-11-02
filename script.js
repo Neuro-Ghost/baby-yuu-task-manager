@@ -16,7 +16,7 @@ playBtn.addEventListener('click', () => {
         playBtn.textContent = '▶';
     } else {
         audio.play();
-        playBtn.textContent = '▐▐';
+    playBtn.textContent = '❚❚';
     }
     isPlaying = !isPlaying;
 });
@@ -24,7 +24,7 @@ playBtn.addEventListener('click', () => {
 loopBtn.addEventListener('click', () => {
     isLooping = !isLooping;
     audio.loop = isLooping;
-    loopBtn.textContent = isLooping ? 'Loop On' : 'Loop Off';
+    loopBtn.textContent = isLooping ? '∞' : '∞ ⊘';
 });
 
     const messages = [
