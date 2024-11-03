@@ -565,24 +565,21 @@ body {
     transform: scale(0.95);
 }
 
-/* Mood Popup Styling */
 .mood-popup {
-  position: fixed;
+  position: fixed; /* Make it appear centered in the viewport */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 300px;
-  padding: 20px;
-  background-color: #ffe6f2;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  font-family: 'Dancing Script', cursive;
-  z-index: 1000;
+  transform: translate(-50%, -50%); /* Center the popup */
+  background-color: white; /* Background color */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding for content */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  z-index: 1000; /* Ensure it appears above other elements */
   display: none; /* Initially hidden */
-  opacity: 0; /* Initially transparent */
+  transition: opacity 0.5s ease; /* Apply transition for opacity */
+  opacity: 0; /* Start as invisible */
 }
+
 
 .mood-popup h3 {
   color: #e75480;
