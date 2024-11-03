@@ -565,4 +565,49 @@ body {
     transform: scale(0.95);
 }
 
+/* Mood Popup Styling */
+.mood-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 300px;
+  padding: 20px;
+  background-color: #ffe6f2;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  z-index: 1000;
+  display: none; /* Initially hidden */
+  opacity: 0; /* Initially transparent */
+}
+
+.mood-popup h3 {
+  color: #e75480;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.mood-options button {
+  background-color: #ffb3cc;
+  color: #4a4a4a;
+  border: none;
+  border-radius: 8px;
+  margin: 8px;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.mood-options button:hover {
+  background-color: #ff99bb;
+  transform: scale(1.05);
+}
+
+.mood-options button:active {
+  transform: scale(0.95);
+}
 
