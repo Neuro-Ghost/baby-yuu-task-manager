@@ -19,10 +19,11 @@ function showMoodPopup() {
     const popup = document.getElementById("moodPopup");
     popup.style.display = "block";
     popup.style.opacity = "0";
+    // Use a timeout to allow the display change to trigger before starting the fade-in
     setTimeout(() => {
-      popup.style.transition = "opacity 0.5s ease";
-      popup.style.opacity = "1";
-    }, 50); // Delay to allow display to trigger before opacity transition
+      popup.style.transition = "opacity 0.5s ease"; // Set transition for the opacity
+      popup.style.opacity = "1"; // Fade in the popup
+    }, 50); // Slight delay to ensure the display change is recognized
   }
 }
 
@@ -36,11 +37,11 @@ function selectMood(mood) {
 
   const popup = document.getElementById("moodPopup");
   // Start fade-out transition
-  popup.style.opacity = "0";
+  popup.style.opacity = "0"; // Begin fading out
   // Wait for the transition to complete, then hide the popup
   setTimeout(() => {
-    popup.style.display = "none"; // Hide after fade out
-  }, 500); // Duration must match the CSS transition
+    popup.style.display = "none"; // Hide the popup after fade-out
+  }, 500); // Match this timing with the CSS transition
 }
 
 // Show the popup on page load if needed
