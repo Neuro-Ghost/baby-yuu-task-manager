@@ -9,28 +9,11 @@ const loopBtn = document.getElementById('loop-btn');
 
 let isPlaying = false;
 let isLooping = false;
-function showMoodPopup() {
-  const lastCheck = localStorage.getItem("lastMoodCheck");
-  const today = new Date().toDateString();
 
-  if (lastCheck !== today) {
-    document.getElementById("moodPopup").style.display = "block";
-  }
-}
 
-function selectMood(mood) {
-  const today = new Date().toDateString();
-  localStorage.setItem("lastMoodCheck", today);
 
-  let moodLog = JSON.parse(localStorage.getItem("moodLog")) || [];
-  moodLog.push({ date: today, mood });
-  localStorage.setItem("moodLog", JSON.stringify(moodLog));
 
-  document.getElementById("moodPopup").style.display = "none";
-}
 
-// Show the popup on page load if needed
-window.onload = showMoodPopup;
 
 playBtn.addEventListener('click', () => {
     if (isPlaying) {
