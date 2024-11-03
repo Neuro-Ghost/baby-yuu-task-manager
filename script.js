@@ -11,6 +11,40 @@ let isPlaying = false;
 let isLooping = false;
 
 
+function showMoodPopup() {
+  const lastCheck = localStorage.getItem("lastMoodCheck");
+  const today = new Date().toDateString();
+
+  if (lastCheck !== today) {
+    const popup = document.getElementById("moodPopup");
+    popup.style.display = "block";
+    popup.style.opacity = "0";
+    setTimeout(() => {
+      popup.style.transition = "opacity 0.5s ease";
+      popup.style.opacity = "1";
+    }, 50); // Delay to allow display to trigger before opacity transition
+  }
+}
+
+function selectMood(mood) {
+  const today = new Date().toDateString();
+  localStorage.setItem("lastMoodCheck", today);
+
+  let moodLog = JSON.parse(localStorage.getItem("moodLog")) || [];
+  moodLog.push({ date: today, mood });
+  localStorage.setItem("moodLog", JSON.stringify(moodLog));
+
+  const popup = document.getElementById("moodPopup");
+  // Start fade-out transition
+  popup.style.opacity = "0";
+  // Wait for the transition to complete, then hide the popup
+  setTimeout(() => {
+    popup.style.display = "none"; // Hide after fade out
+  }, 500); // Duration must match the CSS transition
+}
+
+// Show the popup on page load if needed
+window.onload = showMoodPopup;
 
 
 
