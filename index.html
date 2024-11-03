@@ -17,6 +17,17 @@
 
 </head>
 <body>
+    <div id="moodPopup" class="mood-popup">
+  <h3>How are you feeling today?</h3>
+  <div class="mood-options">
+    <button onclick="selectMood('Don\'t wanna talk about it')">🙄 Don’t wanna talk about it</button>
+    <button onclick="selectMood('Lower than mid')">😕 Lower than mid</button>
+    <button onclick="selectMood('Mid')">😐 Mid</button>
+    <button onclick="selectMood('Upper than mid')">🙂 Upper than mid</button>
+    <button onclick="selectMood('Fucking great')">😁 Fucking great</button>
+  </div>
+</div>
+
     <audio id="taskAddedSound" src="task-added.mp3" preload="auto" style="display: none;"></audio>
 
     <div class="main" ">
