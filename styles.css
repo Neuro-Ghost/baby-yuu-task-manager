@@ -10,7 +10,9 @@ body {
     align-items: center; 
     min-height: 100vh; 
 }
-
+.mood-popup{
+    display: none;
+}
 /* Container Styles */
 .container {
     width: 100%;
